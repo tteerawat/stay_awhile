@@ -16,6 +16,8 @@ defmodule StayAwhileWeb.Router do
 
   scope "/", StayAwhileWeb do
     pipe_through :browser
+
+    live "/incoming-webhook-requests", IncomingWebhookRequestLive
   end
 
   scope "/api", StayAwhileWeb.API do
