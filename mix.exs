@@ -10,7 +10,19 @@ defmodule StayAwhile.MixProject do
       compilers: [:phoenix] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [
+        ignore_modules: [
+          StayAwhile.Application,
+          StayAwhileWeb,
+          StayAwhileWeb.ChannelCase,
+          StayAwhileWeb.ErrorHelpers,
+          StayAwhileWeb.LayoutView,
+          StayAwhileWeb.Router.Helpers,
+          StayAwhileWeb.Telemetry,
+          StayAwhileWeb.UserSocket
+        ]
+      ]
     ]
   end
 
