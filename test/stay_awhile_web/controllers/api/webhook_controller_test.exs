@@ -3,10 +3,10 @@ defmodule StayAwhileWeb.API.WebhookControllerTest do
 
   describe "POST /api/webhook" do
     test "broadcasts conn on webhook topic and returns 200", %{conn: conn} do
-      @endpoint.subscribe("webhook")
+      @endpoint.subscribe("webhook:123")
       params = %{"id" => "123"}
 
-      conn = post(conn, "/api/webhook", params)
+      conn = post(conn, "/api/webhook/123", params)
 
       assert_receive {:incoming_conn, %Plug.Conn{method: "POST", body_params: ^params}}
       assert conn.status == 200

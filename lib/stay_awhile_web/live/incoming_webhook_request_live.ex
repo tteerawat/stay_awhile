@@ -2,18 +2,19 @@ defmodule StayAwhileWeb.IncomingWebhookRequestLive do
   use StayAwhileWeb, :live_view
 
   @impl true
-  def mount(_, _, socket) do
+  def mount(%{"lobby_id" => lobby_id}, _, socket) do
     if connected?(socket) do
-      Phoenix.PubSub.subscribe(StayAwhile.PubSub, "webhook")
+      topic = "webhook:#{lobby_id}"
+      :ok = Phoenix.PubSub.subscribe(StayAwhile.PubSub, topic)
     end
 
-    {:ok, assign(socket, conns: [])}
+    {:ok, assign(socket, conns: [], lobby_id: lobby_id)}
   end
 
   @impl true
   def render(assigns) do
     ~L"""
-    <h1>Incoming webhook requests</h1>
+    <h1>Incoming webhook requests of Lobby <%= @lobby_id %></h1>
     <%= for conn <- @conns do %>
       <pre>
         <code>
