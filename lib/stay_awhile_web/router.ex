@@ -17,12 +17,12 @@ defmodule StayAwhileWeb.Router do
   scope "/", StayAwhileWeb do
     pipe_through :browser
 
-    live "/incoming-webhook-requests", IncomingWebhookRequestLive
+    live "/incoming-webhook-requests/:lobby_id", IncomingWebhookRequestLive
   end
 
   scope "/api", StayAwhileWeb.API do
     pipe_through :api
 
-    post "/webhook", WebhookController, :handle
+    post "/webhook/:lobby_id", WebhookController, :handle
   end
 end

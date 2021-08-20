@@ -48,9 +48,9 @@ defmodule StayAwhile.MixProject do
       {:floki, ">= 0.30.0", only: :test},
       {:jason, "~> 1.0"},
       {:phoenix, "~> 1.5.9"},
-      {:phoenix_html, "~> 2.11"},
+      {:phoenix_html, "~> 3.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, "~> 0.15.1"},
+      {:phoenix_live_view, "~> 0.16.0"},
       {:plug_cowboy, "~> 2.0"},
       {:telemetry_metrics, "~> 0.4"},
       {:telemetry_poller, "~> 0.4"}
