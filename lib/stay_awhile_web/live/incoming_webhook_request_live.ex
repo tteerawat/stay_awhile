@@ -13,7 +13,7 @@ defmodule StayAwhileWeb.IncomingWebhookRequestLive do
 
   @impl true
   def render(assigns) do
-    ~L"""
+    ~H"""
     <h1>Incoming webhook requests of Lobby <%= @lobby_id %></h1>
     <%= for conn <- @conns do %>
       <pre>
